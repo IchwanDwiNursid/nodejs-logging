@@ -1,13 +1,15 @@
-
 import winston from "winston";
 
-test("create new logger", () => {
-
-    const logger = winston.createLogger({});
-
-    logger.log({
-        level: "info",
-        message: "Hello Logging"
+describe("sholud can use logger with winstone", () => {
+  it("create new logger with console transport", () => {
+    const logger = winston.createLogger({
+      level: "info",
+      transports: [new winston.transports.Console({})],
     });
 
+    logger.log({
+      level: "info",
+      message: "Hello Logging",
+    });
+  });
 });

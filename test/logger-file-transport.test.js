@@ -1,23 +1,26 @@
 import winston from "winston";
 
-test("create new logger with console & file transport", () => {
-
+describe("File transport", () => {
+  it("can use file tranport for logging", () => {
     const logger = winston.createLogger({
-        level: "info",
-        transports: [
-            new winston.transports.Console({}),
-            new winston.transports.File({
-                filename: "application.log"
-            }),
-            new winston.transports.File({
-                filename: "eko.log"
-            }),
-        ]
+      level: "info",
+      transports: [
+        new winston.transports.Console({}),
+        new winston.transports.File({
+          filename: "application.log",
+        }),
+        new winston.transports.File({
+          filename: "ichwan.log",
+        }),
+      ],
     });
 
-    logger.info("Hello World");
-    logger.info("Hello World");
-    logger.info("Hello World");
-    logger.info("Hello World");
-
+    // for (let i = 0; i < 10; i++) {
+    //   logger.info(`Hello World ${i}`);
+    //   logger.info("Hello World");
+    //   logger.info("Hello World");
+    //   logger.info("Hello World");
+    //   logger.info("Hello World");
+    // }
+  });
 });
